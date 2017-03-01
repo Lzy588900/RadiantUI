@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "../../../CefRuntime/API/CefJavaScriptAPI.h"
+#include "../../../CefRuntime/API/CEFJavaScriptAPI.hpp"
 
 class FJavaScriptHelper
 {

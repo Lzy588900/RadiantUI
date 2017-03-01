@@ -1,12 +1,12 @@
 // Copyright 2014 Joseph Riedel. All Rights Reserved.
 
-#include "Assert.h"
-#include "Variants.h"
+#include "Assert.hpp"
+#include "Variants.hpp"
 #include <vector>
 #include <map>
 
 #define MAKE_BUILTIN_VARIANT(__Name, __Type) \
-class Var##__Name : public ICefRuntimeVariant##__Name, public CefBase \
+class Var##__Name : public ICefRuntimeVariant##__Name/*, public CefBase*/ \
 { \
 	IMPLEMENT_REFCOUNTING(Var##__Name); \
 public:\
@@ -67,15 +67,14 @@ public:
 		return Value;
 	}
 };
-
+ 
 class VarNull : public ICefRuntimeVariantNull
 {
+	IMPLEMENT_REFCOUNTING(VarNull);
 public:
 
 	static VarNull StaticInstance;
 
-	virtual int AddRef() OVERRIDE { return 1; }
-	virtual int Release() OVERRIDE { return 1; }
 	virtual EVariantType GetType() { return TYPE_Null; }
 };
 
@@ -83,12 +82,11 @@ VarNull VarNull::StaticInstance;
 
 class VarUndefined : public ICefRuntimeVariantUndefined
 {
+	IMPLEMENT_REFCOUNTING(VarUndefined);
 public:
 
 	static VarUndefined StaticInstance;
 
-	virtual int AddRef() OVERRIDE{ return 1; }
-	virtual int Release() OVERRIDE{ return 1; }
 	virtual EVariantType GetType() { return TYPE_Undefined; }
 };
 
@@ -187,7 +185,7 @@ public:
 
 	virtual EVariantType GetType() OVERRIDE { return TYPE_Blob; }
 	virtual size_t GetSize() OVERRIDE { return Size; }
-	virtual const void* GetData() OVERRIDE{ return Data; }
+	virtual const void* GetData() OVERRIDE { return Data; }
 };
 
 class VarDictionary : public ICefRuntimeVariantDictionary

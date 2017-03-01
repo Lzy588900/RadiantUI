@@ -3,7 +3,7 @@
 
 #pragma once
 
-#include "../../../CefRuntime/API/CefRuntimeAPI.h"
-#include "../../../CefRuntime/Source/DLLAPI.h"
+#include "../../../CefRuntime/API/CEFRuntimeAPI.hpp"
+#include "../../../CefRuntime/Source/DLLAPI.hpp"
 
 ICefRuntimeAPI* CefStartup(ICefRuntimeCallbacks* InCallbacks);

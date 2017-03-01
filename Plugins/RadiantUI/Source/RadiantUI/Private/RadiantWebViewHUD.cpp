@@ -6,7 +6,9 @@
 ARadiantWebViewHUD::ARadiantWebViewHUD(const FObjectInitializer& ObjectInitializer)
 : Super(ObjectInitializer)
 {
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = true; 
+	//bShowDebugInfo = true;
+	//bShowHitBoxDebugInfo = true;
 }
 
 void ARadiantWebViewHUD::PostInitializeComponents()
@@ -20,10 +22,10 @@ void ARadiantWebViewHUD::PostInitializeComponents()
 	{
 		if (*It)
 		{
-			URadiantWebViewHUDElement *Element = ConstructObject<URadiantWebViewHUDElement>(*It);
+			URadiantWebViewHUDElement *Element = NewObject<URadiantWebViewHUDElement>((UObject*)GetTransientPackage(), *It);
 			if (Element)
 			{
-				Element->World = World;
+				Element->WorldPrivate = World;
 				HUDElementInstances.Add(Element);
 			}
 		}
@@ -63,6 +65,8 @@ void ARadiantWebViewHUD::BeginPlay()
 {
 	check(GEngine->GameViewport);
 
+	Super::BeginPlay();
+
 	int ZOrder = 0;
 
 	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
@@ -74,13 +78,160 @@ void ARadiantWebViewHUD::BeginPlay()
 
 		SAssignNew(Element->SWidget, SRadiantWebViewHUDElement).HUDOwner(this).HUDElement(Element);
 		GEngine->GameViewport->AddViewportWidgetContent(SAssignNew(Element->Container, SWeakWidget).PossiblyNullContent(Element->SWidget.ToSharedRef()), ZOrder++);
+
 		Element->SetSlateVisibility();
-
 	}
+	/*
+	InputComponent = NewObject<UInputComponent>(this, UInputComponent::StaticClass(), TEXT("HUD_InputComponent0"));
+	if (InputComponent)
+	{
+		InputComponent->BindKey(EKeys::LeftMouseButton, IE_Pressed, this, &ARadiantWebViewHUD::OnLeftMouseButtonClick);
+		InputComponent->BindKey(EKeys::LeftMouseButton, IE_Released, this, &ARadiantWebViewHUD::OnLeftMouseButtonRelease);
+		InputComponent->BindKey(EKeys::RightMouseButton, IE_Pressed, this, &ARadiantWebViewHUD::OnRightMouseButtonClick);
+		InputComponent->BindKey(EKeys::RightMouseButton, IE_Released, this, &ARadiantWebViewHUD::OnRightMouseButtonRelease);
 
-	Super::BeginPlay();
+		InputComponent->BindKey(EKeys::Escape, IE_Released, this, &ARadiantWebViewHUD::OnEscape);
+		InputComponent->BindKey(EKeys::LeftAlt, IE_Released, this, &ARadiantWebViewHUD::OnEscape);
+	}
+	
+	*/
+}
+/*
+
+void ARadiantWebViewHUD::OnLeftMouseButtonClick()
+{
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		CefRuntimeMouseEvent Event;
+		Event.X = PosX;
+		Event.Y = PosY;
+		(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseLeft, false, 1);
+	}
 }
 
+void ARadiantWebViewHUD::OnLeftMouseButtonRelease()
+{
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		CefRuntimeMouseEvent Event;
+		Event.X = PosX;
+		Event.Y = PosY;
+		(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseLeft, true, 1);
+		(*It)->ForceFocus(Controller);
+	}
+}
+
+void ARadiantWebViewHUD::OnRightMouseButtonClick()
+{
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		CefRuntimeMouseEvent Event;
+		Event.X = PosX;
+		Event.Y = PosY;
+		(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseRight, false, 1);
+	}
+}
+
+void ARadiantWebViewHUD::OnRightMouseButtonRelease()
+{
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		CefRuntimeMouseEvent Event;
+		Event.X = PosX;
+		Event.Y = PosY;
+		(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseRight, true, 1);
+		(*It)->ForceFocus(Controller);
+	}
+}
+
+void ARadiantWebViewHUD::OnEscape()
+{
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->bShowMouseCursor = false;
+	Controller->SetCinematicMode(false, false, false, true, true);
+
+	FInputModeGameOnly InputMode;
+	Controller->SetInputMode(InputMode);
+
+	Controller->PopInputComponent(InputComponent);
+}
+
+void ARadiantWebViewHUD::NotifyHitBoxClick(FName BoxName)
+{
+	Super::NotifyHitBoxClick(BoxName);
+
+	UE_LOG(RadiantUILog, Warning, TEXT("NotifyHitBoxClick!!!!! %s"), *BoxName.ToString());
+
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		if (((*It)->GetName() + "HitBox") == BoxName.ToString())
+		{
+			CefRuntimeMouseEvent Event;
+			Event.X = PosX;
+			Event.Y = PosY;
+			(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseLeft, false, 1);
+			(*It)->ForceFocus(Controller);
+			break;
+		}
+	}
+	Controller->bShowMouseCursor = false;
+	Controller->bEnableClickEvents = false;
+	Controller->SetCinematicMode(false, false, false, true, true);
+	Controller->EnableInput(Controller);
+
+}
+
+void ARadiantWebViewHUD::NotifyHitBoxRelease(FName BoxName)
+{
+	Super::NotifyHitBoxRelease(BoxName);
+
+	UE_LOG(RadiantUILog, Warning, TEXT("NotifyHitBoxRelease!!!!! %s"), *BoxName.ToString());
+
+	float PosX, PosY;
+	APlayerController *Controller = GetOwningPlayerController();
+	Controller->GetMousePosition(PosX, PosY);
+
+	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
+	{
+		if (((*It)->GetName() + "HitBox") == BoxName.ToString())
+		{
+			CefRuntimeMouseEvent Event;
+			Event.X = PosX;
+			Event.Y = PosY;
+			(*It)->WebView->GetBrowser()->SendMouseClickEvent(Event, CEFRT_MouseLeft, true, 1);
+			(*It)->ForceFocus(Controller);
+			break;
+		}
+	}
+
+	Controller->bShowMouseCursor = false;
+	Controller->bEnableClickEvents = false;
+	Controller->SetCinematicMode(false, false, false, true, true);
+	Controller->EnableInput(Controller);
+
+}
+
+*/
 void ARadiantWebViewHUD::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
 	for (auto It = HUDElementInstances.CreateConstIterator(); It; ++It)
@@ -126,6 +277,9 @@ void ARadiantWebViewHUD::DrawHUDElement(const FVector2D& ViewportSize, URadiantW
 		FCanvasTileItem TileItem(ItemPosition, WebView->WebViewCanvas->RenderTargetTexture->Resource, ItemSize, FLinearColor::White);
 		TileItem.BlendMode = WebView->IsTransparentRendering() ? SE_BLEND_Translucent : SE_BLEND_Opaque;
 		Canvas->DrawItem(TileItem);
+
+ 		//FName HBName = FName(*(InElement->GetName() + TEXT("HitBox")));
+		//AHUD::AddHitBox(ItemPosition, ItemSize, HBName, false);
 	}
 }
 

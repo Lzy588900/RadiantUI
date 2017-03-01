@@ -9,10 +9,10 @@ namespace
 #if defined(WIN32)
 #pragma warning (disable:4191)
 #if RADIANTUI_DEBUG // from RadiantUI.Build.cs
-#define DLLNAME "CefFramework-Debug.dll"
+#define DLLNAME "CEFFramework-Debug.dll"
 #define MODULENAME "UE4Editor-RadiantUI-Win64-DebugGame.dll"
 #else
-#define DLLNAME "CefFramework.dll"
+#define DLLNAME "CEFFramework.dll"
 #define MODULENAME "UE4Editor-RadiantUI.dll"
 #endif
 
@@ -21,9 +21,9 @@ namespace
 #define MODULENAME NULL
 #endif
 
-#define FRAMEWORKPATH "..\\..\\CefRuntime\\Binaries\\Win64\\"DLLNAME
-#define FRAMEWORKPATH_NOTFOUND_ERROR TEXT("Unable to get path for ") TEXT("..\\..\\CefRuntime\\Binaries\\Win64\\") TEXT(DLLNAME)
-#define FRAMEWORKPATH_LOAD_ERROR TEXT("LoadLibrary failed on ") TEXT("..\\..\\CefRuntime\\Binaries\\Win64\\") TEXT(DLLNAME)
+#define FRAMEWORKPATH "..\\..\\CefRuntime\\Binaries\\Release\\"DLLNAME
+#define FRAMEWORKPATH_NOTFOUND_ERROR TEXT("Unable to get path for ") TEXT("..\\..\\CefRuntime\\Binaries\\Release\\") TEXT(DLLNAME)
+#define FRAMEWORKPATH_LOAD_ERROR TEXT("LoadLibrary failed on ") TEXT("..\\..\\CefRuntime\\Binaries\\Release\\") TEXT(DLLNAME)
 
 	static ICefRuntimeAPI* LoadCefFrameworkDLL(ICefRuntimeCallbacks *InCallbacks)
 	{

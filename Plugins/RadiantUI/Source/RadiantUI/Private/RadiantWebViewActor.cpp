@@ -63,7 +63,6 @@ void ARadiantWebViewActor::InitDynamicMaterial()
 
 void ARadiantWebViewActor::BindDynamicMaterial()
 {
-	
 	if ((GetNetMode() != NM_DedicatedServer) && MeshComponent && (WebViewRenderComponent->WebView->WebViewCanvas))
 	{
 		if (OldMeshMaterial)
@@ -630,7 +629,7 @@ bool ARadiantWebViewActor::TraceScreenPoint(APawn* InPawn, FVector2D& OutUV)
 	FHitResult HitResult;
 	
 	UWorld* const World = GetWorld();
-	if (World->LineTraceSingle(HitResult, Location, EndTrace, TraceChannel, TraceParams))
+	if (World->LineTraceSingleByChannel(HitResult, Location, EndTrace, TraceChannel, TraceParams))
 	{
 		if (HitResult.Actor.IsValid() && (HitResult.Actor.Get() == this))
 		{

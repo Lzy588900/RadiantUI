@@ -2,7 +2,7 @@
 // See LICENSE for licensing terms.
 
 #include "RadiantUIPrivatePCH.h"
-#include "../../../CefRuntime/API/CefRuntimeAPI.h"
+#include "../../../CefRuntime/API/CEFRuntimeAPI.hpp"
 
 #define BIND_KEY(__KeyName) \
 	InComponent->BindKey(EKeys::##__KeyName, IE_Pressed, this, &URadiantWebViewInputComponent::##__KeyName##Pressed); \
@@ -95,8 +95,8 @@ void URadiantWebViewInputComponent::SetupInputComponents()
 		static const FName InputMouseComponentName(TEXT("WebViewInputMouseInputComponent0"));
 		static const FName InputMouseAndKeyComponentName(TEXT("WebViewInputMouseAndKeyInputComponent0"));
 
-		MouseInputComponent = ConstructObject<UInputComponent>(UInputComponent::StaticClass(), GetOwner(), InputMouseComponentName);
-		MouseAndKeyInputComponent = ConstructObject<UInputComponent>(UInputComponent::StaticClass(), GetOwner(), InputMouseAndKeyComponentName);
+		MouseInputComponent = NewObject<UInputComponent>(GetOwner(), UInputComponent::StaticClass(), InputMouseComponentName);
+		MouseAndKeyInputComponent = NewObject<UInputComponent>(GetOwner(), UInputComponent::StaticClass(), InputMouseAndKeyComponentName);
 
 		BindMouseInput(MouseInputComponent);
 		BindMouseInput(MouseAndKeyInputComponent);

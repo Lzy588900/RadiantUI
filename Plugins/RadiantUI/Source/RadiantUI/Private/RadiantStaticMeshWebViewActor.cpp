@@ -15,7 +15,7 @@ ARadiantStaticMeshWebViewActor::ARadiantStaticMeshWebViewActor(const FObjectInit
 	StaticMeshComponent = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, TEXT("StaticMeshComponent0"));
 
 #if WITH_EDITORONLY_DATA
-	StaticMeshComponent->StaticMesh = DefaultMeshRef.Object;
+	StaticMeshComponent->SetStaticMesh(DefaultMeshRef.Object);
 #endif
 
 	StaticMeshComponent->Mobility = EComponentMobility::Static;
@@ -78,7 +78,7 @@ void ARadiantStaticMeshWebViewActor::ExtractInteractionMesh()
 {
 	check(InteractionMesh == nullptr);
 
-	UStaticMesh* StaticMesh = StaticMeshComponent->StaticMesh;
+	UStaticMesh* StaticMesh = StaticMeshComponent->GetStaticMesh();
 
 	check(StaticMesh->RenderData->LODResources.Num() > 0);
 	
@@ -87,7 +87,7 @@ void ARadiantStaticMeshWebViewActor::ExtractInteractionMesh()
 	TArray<uint32> Indices;
 	LOD.IndexBuffer.GetCopy(Indices);
 
-	InteractionMesh = ConstructObject<URadiantWebViewInteractionMesh>(URadiantWebViewInteractionMesh::StaticClass(), this);
+	InteractionMesh = NewObject<URadiantWebViewInteractionMesh>(this, URadiantWebViewInteractionMesh::StaticClass());
 
 	// Extract the sections that reference this material:
 
@@ -134,7 +134,7 @@ void ARadiantStaticMeshWebViewActor::PostEditChangeProperty(struct FPropertyChan
 	if ((PropertyName == GET_MEMBER_NAME_CHECKED(ARadiantStaticMeshWebViewActor, MaterialIndex)) || 
 		(PropertyName == GET_MEMBER_NAME_CHECKED(ARadiantStaticMeshWebViewActor, StaticMeshComponent)))
 	{
-		if (bActorInitialized)
+		if (IsActorInitialized())
 		{
 			if (InteractionMesh)
 			{

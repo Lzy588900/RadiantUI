@@ -4,7 +4,8 @@
 #pragma once
 
 #include "RadiantCanvasRenderTarget.h"
-#include "../../../CefRuntime/API/CefJavaScriptAPI.h"
+#include "../../../CefRuntime/API/CEFJavaScriptAPI.hpp"
+#include "RadiantLogCategories.h"
 #include "RadiantWebView.generated.h"
 
 class ICefWebView;
