@@ -1,3 +1,6 @@
 http://opensource.spotify.com/cefbuilds/index.html
 
 Standard Distribution	
+
+current sync with
+cef_binary_3.2924.1575.g97389a9_windows64

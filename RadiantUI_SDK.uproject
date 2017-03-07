@@ -1,13 +1,8 @@
 {
 	"FileVersion": 3,
-	"Version": 0,
-	"VersionName": "0.0",
-	"EngineAssociation": "4.14-GR",
-	"FriendlyName": "RadiantUI Demo",
-	"Description": "RadiantUI",
+	"EngineAssociation": "4.14",
 	"Category": "Demo",
-	"CreatedBy": "Joseph Riedel",
-	"CreatedByURL": "http://radiantsdk.com",
+	"Description": "RadiantUI",
 	"Modules": [
 		{
 			"Name": "RadiantUI_SDK",
@@ -15,5 +10,157 @@
 			"LoadingPhase": "Default"
 		}
 	],
-	"EpicSampleNameHash": "0"
+	"Plugins": [
+		{
+			"Name": "SetupUEr",
+			"Enabled": false,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c6ae5bea262a45dfa8bf1c718c2284ec"
+		},
+		{
+			"Name": "HoudiniEngine",
+			"Enabled": false
+		},
+		{
+			"Name": "Controlysis",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ce21cc60b9b34126a2eba3b8404023f3"
+		},
+		{
+			"Name": "CustomLibraryPlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/6dcd085dc6234d57b246f336240d581a"
+		},
+		{
+			"Name": "DialoguePlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/847aa65dc3024a37ae83ed89307524bd"
+		},
+		{
+			"Name": "EasyBallistics",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/bbecde0f66914263b57fd2af5a0c7ffe"
+		},
+		{
+			"Name": "EasyFlightModel",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b8e53bee960e4cd0b74c0a02261cd957"
+		},
+		{
+			"Name": "GameAnalytics",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/d070c3fab7b74c08bab3a89c9cbf4490"
+		},
+		{
+			"Name": "GameSparks",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/0bb7b72905c64c7d86c4c430a42bc9c1"
+		},
+		{
+			"Name": "LightMapUEr",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/3e5c949daaab494fb5dbf54b29b0d38b"
+		},
+		{
+			"Name": "LogitechG",
+			"Enabled": true
+		},
+		{
+			"Name": "LowEntryCompression",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/8e35c7f136ee41c581255e3762d5738e"
+		},
+		{
+			"Name": "LowEntryEncryption",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/93647fb26bd14898b7ea63d4eefbf33a"
+		},
+		{
+			"Name": "LowEntryExtStdLib",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/846c2ad08f164f45b0335ecebf85361e"
+		},
+		{
+			"Name": "LowEntryFileManager",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/58edabbac7514311a4670c5d47a6fae6"
+		},
+		{
+			"Name": "LowEntryHttpRequest",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/29d22bc9b02148d6bf6f57e1a0f660cc"
+		},
+		{
+			"Name": "LowEntryJson",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/c108b5a8917c4c86873edf835237beab"
+		},
+		{
+			"Name": "LowEntrySocketConnection",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/a8cf875efc8d4be3b2ab5f369241797c"
+		},
+		{
+			"Name": "LowEntryXmlParser",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/5ac057200f49458f8ff82cb771ca23b6"
+		},
+		{
+			"Name": "MatBatchUEr",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/de32e6a9d9fa491bb1ed3f49465a8063"
+		},
+		{
+			"Name": "MidiAsset",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/aff69119f95d405abbab38236e258c2e"
+		},
+		{
+			"Name": "ModoMaterialImporter",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/9cbfb639f28d446983f74d8d400563e0"
+		},
+		{
+			"Name": "RuntimeMeshComponent",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ad0b45a6a31e462aba7cf7c790a9c125"
+		},
+		{
+			"Name": "Savior",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/a3412bb96a304648a8989da784994084"
+		},
+		{
+			"Name": "Substance",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/2f6439c2f9584f49809d9b13b16c2ba4"
+		},
+		{
+			"Name": "ToolbagImporter",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/5510b9babf944b8e97cd533640f78a2f"
+		},
+		{
+			"Name": "UnrealJS",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/be751eedc4a14cc09e39945bc5a531c4"
+		},
+		{
+			"Name": "VaRestPlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/e47be161e7a24e928560290abd5dcc4f"
+		},
+		{
+			"Name": "VaTexAtlas",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ebd9356193134578975c8fdfa6878baf"
+		},
+		{
+			"Name": "VehiclesPlugin",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/6770dcbf17fc4a39ab1ff39c4791df00"
+		}
+	],
+	"TargetPlatforms": [
+		"WindowsNoEditor"
+	]
 }

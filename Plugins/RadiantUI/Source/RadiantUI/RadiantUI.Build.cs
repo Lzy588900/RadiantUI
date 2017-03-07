@@ -8,7 +8,8 @@ namespace UnrealBuildTool.Rules
 	{
 		public RadiantUI(TargetInfo Target)
 		{
-			PublicIncludePaths.AddRange(
+            //bEnforceIWYU = false;
+            PublicIncludePaths.AddRange(
 				new string[] {
 				}
 			);
