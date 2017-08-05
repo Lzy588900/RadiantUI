@@ -1,8 +1,10 @@
 // Copyright 2014 Joseph Riedel, Inc. All Rights Reserved.
 // See LICENSE for licensing terms.
 
-#pragma once 
+#pragma once
 
+#include "CoreMinimal.h"
+#include "GameFramework/HUD.h"
 #include "SlateCore.h"
 #include "SCompoundWidget.h"
 #include "RadiantWebView.h"
@@ -20,11 +22,11 @@ public:
 	{}
 
 	SLATE_ARGUMENT(TWeakObjectPtr<ARadiantWebViewHUD>, HUDOwner)
-	SLATE_ARGUMENT(TWeakObjectPtr<URadiantWebViewHUDElement>, HUDElement)
+		SLATE_ARGUMENT(TWeakObjectPtr<URadiantWebViewHUDElement>, HUDElement)
 
-	SLATE_END_ARGS()
+		SLATE_END_ARGS()
 
-	void Construct(const FArguments& InArgs);
+		void Construct(const FArguments& InArgs);
 
 	virtual void Tick(const FGeometry& AllottedGeometry, const double InCurrentTime, const float InDeltaTime) override;
 
@@ -39,9 +41,9 @@ public:
 	virtual FReply OnMouseButtonDoubleClick(const FGeometry& InMyGeometry, const FPointerEvent& InMouseEvent) override;
 
 	virtual FCursorReply OnCursorQuery(const FGeometry& MyGeometry, const FPointerEvent& CursorEvent) const override;
-	
+
 	virtual FReply OnKeyDown(const FGeometry& MyGeometry, const FKeyEvent& InKeyboardEvent) override;
-	
+
 	virtual FReply OnKeyUp(const FGeometry& MyGeometry, const FKeyEvent& InKeyboardEvent) override;
 
 	virtual FReply OnKeyChar(const FGeometry& MyGeometry, const FCharacterEvent& InCharacterEvent) override;
@@ -58,7 +60,7 @@ private:
 	friend class ARadiantWebViewHUD;
 
 	void GetMouseState(const FGeometry& InGeometry, const FPointerEvent& InPointerEvent, CefRuntimeMouseEvent &OutMouseEvent);
-	
+
 	FVector2D AbsoluteToLocal(const FGeometry& MyGeometry, const FVector2D AbsolutePosition);
 
 	FVector2D ScreenPosition;
@@ -67,7 +69,6 @@ private:
 
 	TWeakObjectPtr<ARadiantWebViewHUD> HUDOwner;
 	TWeakObjectPtr<URadiantWebViewHUDElement> HUDElement;
-
 };
 
 UENUM(BlueprintType)
@@ -93,61 +94,61 @@ public:
 	TSharedPtr<FRadiantWebView> WebView;
 
 	UPROPERTY(EditDefaultsOnly, Category = "WebView")
-	FRadiantWebViewDefaultSettings DefaultSettings;
+		FRadiantWebViewDefaultSettings DefaultSettings;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HUD|Element")
-	uint32 bVisible:1;
+		uint32 bVisible : 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD|Element")
-	uint32 bMouseThumbNavigate:1;
+		uint32 bMouseThumbNavigate : 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HUD|Element")
-	TEnumAsByte<ERadiantHUDElementInputMode::Type> InputMode;
+		TEnumAsByte<ERadiantHUDElementInputMode::Type> InputMode;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HUD|Element")
-	FVector2D ViewportResolutionFactor;
+		FVector2D ViewportResolutionFactor;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "HUD|Element")
-	uint32 bAutoMatchViewportResolution:1;
+		uint32 bAutoMatchViewportResolution : 1;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD|Element")
-	FVector2D Position;
+		FVector2D Position;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD|Element")
-	FVector2D Size;
+		FVector2D Size;
 
 	UFUNCTION(BlueprintCallable, Category = "HUD|Element")
-	void SetVisible(bool IsVisible);
+		void SetVisible(bool IsVisible);
 
 	UFUNCTION(BlueprintCallable, Category = "HUD|Element")
-	void SetInputMode(TEnumAsByte<ERadiantHUDElementInputMode::Type> InInputMode);
-	
-	UFUNCTION(BlueprintCallable, Category = "WebView")
-	bool CanNavigateForward();
+		void SetInputMode(TEnumAsByte<ERadiantHUDElementInputMode::Type> InInputMode);
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	bool CanNavigateBackward();
+		bool CanNavigateForward();
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	void NavigateForward();
+		bool CanNavigateBackward();
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	void NavigateBackward();
+		void NavigateForward();
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	void LoadURL(const FString& URL);
+		void NavigateBackward();
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	FString GetURL();
+		void LoadURL(const FString& URL);
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	void SetRefreshRate(float FramesPerSecond);
+		FString GetURL();
 
 	UFUNCTION(BlueprintCallable, Category = "WebView")
-	float GetRefreshRate();
+		void SetRefreshRate(float FramesPerSecond);
+
+	UFUNCTION(BlueprintCallable, Category = "WebView")
+		float GetRefreshRate();
 
 	UFUNCTION(BlueprintCallable, BlueprintPure, Category = JavaScript)
-	TScriptInterface<IRadiantJavaScriptFunctionCallTargetInterface> GetJavaScriptCallContext();
+		TScriptInterface<IRadiantJavaScriptFunctionCallTargetInterface> GetJavaScriptCallContext();
 
 	//void ForceFocus(APlayerController *Owner);
 
@@ -165,7 +166,7 @@ private:
 
 	void SetSlateVisibility();
 	void OnExecuteJSHook(const FString& HookName, ICefRuntimeVariantList* Arguments);
-	
+
 	friend class ARadiantWebViewHUD;
 
 	TSharedPtr<class SWeakWidget> Container;

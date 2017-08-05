@@ -156,3 +156,15 @@ obj/
 
 # Explcitly ignore Mac DS_Store files, regardless of where they are
 .DS_Store
+
+# Ignore CEF
+CEF/
+
+# Ignore vs
+.vs/
+
+# Ignore Saved
+Saved/
+
+# Ignore Build Data
+*RadiantDemoRoom_BuiltData.uasset

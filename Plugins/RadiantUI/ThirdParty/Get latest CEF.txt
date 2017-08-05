@@ -1,6 +1,9 @@
 http://opensource.spotify.com/cefbuilds/index.html
 
-Standard Distribution	
+current sync with Standard Distribution
+08/01/2017 - CEF 3.3112.1650.g0488961 / Chromium 60.0.3112.78
 
-current sync with
-cef_binary_3.2924.1575.g97389a9_windows64
+extract to /CEF
+
+See
+Extract Cef Standard Distribution.png

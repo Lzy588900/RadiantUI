@@ -106,7 +106,7 @@ public:
 		CefString(&Settings.cache_path).FromASCII("c:\\Cache");
 		CefString(&Settings.log_file).FromASCII("c:\\Cache\\debug.log");
 		Settings.log_severity = LOGSEVERITY_VERBOSE;
-		
+
 		std::string DebugInfo("CEF-CachePath: ");
 		DebugInfo += CefString(Settings.cache_path.str);
 		DebugInfo += '\n';
@@ -148,7 +148,7 @@ public:
 		CefWindowInfo WindowInfo;
 		CefBrowserSettings BrowserSettings;
 
-		WindowInfo.SetAsWindowless(nullptr, InTransparentPainting);
+		WindowInfo.SetAsWindowless(nullptr);
 		WindowInfo.x = 0;
 		WindowInfo.y = 0;
 		WindowInfo.width = InSizeX;
@@ -156,7 +156,7 @@ public:
 
 		BrowserSettings.javascript_access_clipboard = STATE_DISABLED;
 		BrowserSettings.javascript_close_windows = STATE_DISABLED;
-		BrowserSettings.javascript_open_windows = STATE_DISABLED;
+		//BrowserSettings.javascript_open_windows = STATE_DISABLED;
 
 		//BrowserSettings.local_storage = STATE_ENABLED;
 

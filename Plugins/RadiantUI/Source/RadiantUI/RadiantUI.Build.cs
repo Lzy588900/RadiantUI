@@ -6,8 +6,10 @@ namespace UnrealBuildTool.Rules
 {
 	public class RadiantUI : ModuleRules
 	{
-		public RadiantUI(TargetInfo Target)
-		{
+		public RadiantUI(ReadOnlyTargetRules Target) : base(Target)
+        {
+            PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
+
             bEnforceIWYU = false;
             PublicIncludePaths.AddRange(
 				new string[] {
@@ -41,7 +43,7 @@ namespace UnrealBuildTool.Rules
 				}
 			);
 
-			if ((Target.Configuration == UnrealTargetConfiguration.Debug) || (Target.Configuration == UnrealTargetConfiguration.DebugGame)) 
+			if ((Target.Configuration == UnrealTargetConfiguration.Debug) || (Target.Configuration == UnrealTargetConfiguration.DebugGame))
 			{
 				Definitions.Add("RADIANTUI_DEBUG=1");
 			}

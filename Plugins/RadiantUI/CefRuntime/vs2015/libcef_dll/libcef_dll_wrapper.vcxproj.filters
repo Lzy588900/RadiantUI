@@ -4,13 +4,11 @@
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\transfer_util.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\wrapper_types.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\app_cpptoc.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\browser_process_handler_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\client_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\completion_callback_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\context_menu_handler_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\cookie_visitor_cpptoc.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\delete_cookies_callback_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\dialog_handler_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\display_handler_cpptoc.h" />
@@ -53,8 +51,6 @@
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\web_plugin_info_visitor_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\web_plugin_unstable_callback_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\write_handler_cpptoc.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_handler_child_cpptoc.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_handler_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\browser_view_delegate_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\button_delegate_cpptoc.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\menu_button_delegate_cpptoc.h" />
@@ -71,7 +67,6 @@
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\command_line_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\context_menu_params_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\cookie_manager_ctocpp.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\dictionary_value_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\domdocument_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\domnode_ctocpp.h" />
@@ -120,9 +115,6 @@
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\xml_reader_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\zip_reader_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ctocpp.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_child_child_ctocpp.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_child_ctocpp.h" />
-    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\box_layout_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\browser_view_ctocpp.h" />
     <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\button_ctocpp.h" />
@@ -384,7 +376,6 @@
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\base\cef_thread_collision_warner.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\base\cef_weak_ptr.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\app_cpptoc.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\browser_process_handler_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\client_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\completion_callback_cpptoc.cc" />
@@ -432,8 +423,6 @@
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\web_plugin_info_visitor_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\web_plugin_unstable_callback_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\write_handler_cpptoc.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_handler_child_cpptoc.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_handler_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\browser_view_delegate_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\button_delegate_cpptoc.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\views\menu_button_delegate_cpptoc.cc" />
@@ -498,9 +487,6 @@
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\xml_reader_ctocpp.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\zip_reader_ctocpp.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ctocpp.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_child_child_ctocpp.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_child_ctocpp.cc" />
-    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_object_ctocpp.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\box_layout_ctocpp.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\browser_view_ctocpp.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\views\button_ctocpp.cc" />
@@ -524,6 +510,24 @@
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\wrapper\cef_zip_archive.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\wrapper\libcef_dll_wrapper.cc" />
     <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\wrapper\libcef_dll_wrapper2.cc" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\accessibility_handler_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_ref_counted_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_scoped_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\cpptoc_ref_counted.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\cpptoc_scoped.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\ctocpp_ref_counted.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\ctocpp_scoped.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_ref_ptr_client_child_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_ref_ptr_client_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_scoped_client_child_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_scoped_client_cpptoc.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_child_child_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_child_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_child_child_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_child_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_ctocpp.h" />
+    <ClInclude Include="..\..\..\ThirdParty\CEF\libcef_dll\ptr_util.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="include\base\internal">
@@ -559,5 +563,20 @@
     <Filter Include="include\wrapper">
       <UniqueIdentifier>{B762C2B7-65A6-4173-91C3-02952D197968}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\accessibility_handler_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_ref_counted_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\base_scoped_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_ref_ptr_client_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_scoped_client_child_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_scoped_client_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\cpptoc\test\translator_test_ref_ptr_client_child_cpptoc.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_child_ctocpp.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_ctocpp.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_child_child_ctocpp.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_child_ctocpp.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_scoped_library_ctocpp.cc" />
+    <ClCompile Include="..\..\..\ThirdParty\CEF\libcef_dll\ctocpp\test\translator_test_ref_ptr_library_child_child_ctocpp.cc" />
   </ItemGroup>
 </Project>

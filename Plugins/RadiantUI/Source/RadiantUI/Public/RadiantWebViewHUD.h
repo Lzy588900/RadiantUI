@@ -1,7 +1,7 @@
 // Copyright 2014 Joseph Riedel, Inc.All Rights Reserved.
 // See LICENSE for licensing terms.
 
-#pragma once 
+#pragma once
 
 #include "RadiantWebViewHUDElement.h"
 #include "RadiantWebViewHUD.generated.h"
@@ -16,10 +16,10 @@ public:
 	ARadiantWebViewHUD(const FObjectInitializer& ObjectInitializer);
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "HUD Elements")
-	TArray<TSubclassOf<URadiantWebViewHUDElement> > HUDElements;
+		TArray<TSubclassOf<URadiantWebViewHUDElement> > HUDElements;
 
 	UPROPERTY(transient, BlueprintReadOnly, Category = "HUD Elements")
-	TArray<URadiantWebViewHUDElement*> HUDElementInstances;
+		TArray<URadiantWebViewHUDElement*> HUDElementInstances;
 
 	// Begin UObject interface.
 	virtual void Serialize(FArchive& Ar) override;
@@ -45,11 +45,13 @@ public:
 
 	virtual void NotifyHitBoxClick(FName BoxName) override;
 	virtual void NotifyHitBoxRelease(FName BoxName) override;
-	
+
 	*/
 
-	virtual void PreDrawHUD() {}
-	virtual void PostDrawHUD() {}
+	virtual void PreDrawHUD()
+	{}
+	virtual void PostDrawHUD()
+	{}
 
 private:
 

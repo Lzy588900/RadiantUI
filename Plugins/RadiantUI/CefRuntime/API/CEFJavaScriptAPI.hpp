@@ -3,7 +3,7 @@
 #pragma once
 
 #ifndef CEF
-class CefBase {
+class CefBaseRefCounted {
 public:
 	///
 	// Called to increment the reference count for the object. Should be called
@@ -23,13 +23,13 @@ public:
 	virtual bool HasOneRef() const = 0;
 
 protected:
-	virtual ~CefBase() {}
+	virtual ~CefBaseRefCounted() {}
 };
 #endif
 
 class ICefWebView;
 
-class ICefRuntimeVariant : public CefBase
+class ICefRuntimeVariant : public CefBaseRefCounted
 {
 public:
 
